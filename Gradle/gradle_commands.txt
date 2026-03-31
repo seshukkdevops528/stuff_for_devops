@@ -1,0 +1,112 @@
+1  sudo dnf install java-21-openjdk java-21-openjdk-devel -y
+    2  java -version
+    3  yum install wget tree unzip git -y
+    4  sudo yum install wget tree unzip git -y
+    5  wget https://services.gradle.org/distributions/gradle-9.4.0-bin.zip -P /tmp
+    6  ls -lrth /tmp/
+    7  sudo mkdir -p /opt/gradle
+    8  ls -lrth /opt/
+    9  sudo unzip -d /opt/gradle /tmp/gradle-9.4.0-bin.zip
+   10  cd /opt/
+   11  ls
+   12  cd gradle/
+   13  ls
+   14  cd gradle-9.4.0/
+   15  ls
+   16  cd -
+   17  cd
+   18  sudo nano /etc/profile.d/gradle.sh
+   19  cd /etc/
+   20  ls -lrth
+   21  ls -lrth profile.d/
+   22  cd profile.d/
+   23  ls
+   24  vi gradle.sh
+   25  ls
+   26  cd
+   27  sudo ls -ld /etc/profile.d/
+   28  sudo tee /etc/profile.d/gradle.sh > /dev/null <<EOF
+export GRADLE_HOME=/opt/gradle/gradle-9.4.0
+export PATH=\$GRADLE_HOME/bin:\$PATH
+EOF
+
+   29  ls -l /etc/profile.d/gradle.sh
+   30  source /etc/profile.d/gradle.sh
+   31  gradle -v
+   32  gradle -v > grdleinfo.txt
+   33  ls
+   34  cat grdleinfo.txt
+   35  rm -f /tmp/gradle-9.4.0-bin.zip
+   36  ls -lrth /opt/gradle
+   37  sudo chmod -R 755 /opt/gradle
+   38  ls -lrth /opt/gradle
+   39  mkdir my-gradle-app
+   40  cd my-gradle-app
+   41  ls
+   42  gradle init
+   43  ls
+   44  ls -lrth
+   45  cd gradle
+   46  ls
+   47  cd -
+   48  cd app/
+   49  ls
+   50  cd src/
+   51  ls
+   52  cd main/
+   53  ls
+   54  ls -lrth
+   55  cd java/
+   56  ls
+   57  cd org/
+   58  ls
+   59  cd example/
+   60  ls
+   61  pwd
+   62  cat App.java
+   63  cd
+   64  gradle build
+   65  ls -lrth
+   66  cd my-gradle-app/
+   67  ls
+   68  vi gradle.build
+   69  gradle build
+   70  gradle run
+   71  gradle tasks
+   72  gradle clean
+   73  ls -lrth
+   74  cat -n settings.gradle
+   75  ls -lrth
+   76  clear
+   77  cat -n gradle.build
+   78  ls -lrth
+   79  cd app/
+   80  ls
+   81  cd src/
+   82  ls
+   83  cd main/
+   84  ls
+   85  cd java/
+   86  ls
+   87  cd org/
+   88  ls
+   89  cd example/
+   90  ls
+   91  pwd
+   92  cat -n App.java
+   93  cd
+   94  cd my-gradle-app/
+   95  ls
+   96  mv gradle.build build.gradle
+   97  ls -lrth
+   98  cd
+   99  cp my-gradle-app/build.gradle build.gradle
+  100  ls
+  101  cd my-gradle-app/
+  102  vi build.gradle
+  103  >build.gradle
+  104  ls
+  105  vi build.gradle
+  106  gradle hello
+  107  cd
+  108  history
