@@ -58,3 +58,6 @@ change the default maven repositories  location
 #git clone https://github.com/kkdevopsb8/standalone-app-kkfunda.git [Download the files from git hub]
 #cd standalone-app-kkfunda/
 #tree --> source code and unit test cases
+#mvn clean package [build maven ]
+#ls -lrth target/ [display the content in target folder]
+finally you got jar file in this folder
