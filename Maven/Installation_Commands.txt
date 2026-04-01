@@ -1,0 +1,15 @@
+Maven Dir Structure
+===================
+/bin --> Contains all binary files {mvn etc...}
+/boot --> Contains jar files used at onetime
+/conf --> configuration file {setings.xml}
+/lib --> Library Files {jar files}
+
+Default xml file names for build tools
+======================================
+for Maven --> pom.xml {Project Object Model [POM]}
+for Ant --> build.xml
+for Gradle --> build.gradle
+
+Maven Installation Steps
+========================
