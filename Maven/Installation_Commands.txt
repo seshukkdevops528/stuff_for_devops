@@ -13,3 +13,48 @@ for Gradle --> build.gradle
 
 Maven Installation Steps
 ========================
+$sudo su - [ Switch to root user]
+#yum update -y [update the installed packages]
+#javac -version [check java is installed or not]
+#sudo yum search java | grep -i OpenJDK [what are the latest java versions are avilable]
+#sudo yum install java-21-openjdk-devel -y [Install java]
+#javac -version [check java is inatalled or not and version also]
+#cd /opt/ [third party packages/installtions will do in /opt path]
+#yum install git tree wget unzip -y [Install unzip, wget, tree and git]
+#wget https://dlcdn.apache.org/maven/maven-3/3.9.14/binaries/apache-maven-3.9.14-bin.zip [Download Maven from Official Website]
+#ls [list the files]
+#unzip apache-maven-3.9.14-bin.zip [unzip the maven file]
+#cd apache-maven-3.9.14 [change Directory to maven]
+#vi ~/.bash_profile [to update the maven path]
+
+export M2_HOME=/opt/apache-maven-3.9.14
+export PATH=$M2_HOME/bin:$PATH
+
+  export M2_HOME=/opt/apache-maven-3.9.14
+  export PATH=$PATH:$M2_HOME/bin
+--add above two lines in ~/.bash_profile file--
+
+#source ~/.bash_profile [reload/restart the file]
+#mvn -v [check the maven version]
+**************************************************************
+Maven repositories --> Maven repositories are locations where Maven artifacts (JAR files, plugins, and other project dependencies) are stored and can be retrieved from.
+maven local repository  --> The local repository is a directory on your local machine where Maven stores downloaded artifacts. By default, it is located in the .m2 directory within the user's home directory.
+    linux: ~/.m2/repository
+    windows: C:\Users\prasanth\.m2\repository
+    mac book: /users/prasanth/.m2/repository
+maven central repository --> The central repository is the default repository used by Maven, hosted by the Maven community. It contains a vast number of commonly used libraries. If a dependency is not found in the local repository, Maven searches the central repository.
+URL: https://repo.maven.apache.org/maven2/
+maven remote repository --> n your orgnaization, We have 5 war files,every one c Dont keep in the cenral repo, why?, an access, so we are keeping in remote repo so our company people can access.
+EX: Nexus / JFrog
+*************************************************************
+change the default maven repositories  location
+# vi /opt/apache-maven-3.9.14/conf/settings.xml
+  <localRepository>
+  /root/commonmavenrepo/     
+  </localRepository>
+--update the above two lines--
+
+#cd [exit from root user to normal user]
+#git clone https://github.com/kkdevopsb8/standalone-app-kkfunda.git [Download the files from git hub]
+#cd standalone-app-kkfunda/
+#tree --> source code and unit test cases
