@@ -1,0 +1,2 @@
+$scp -i linux_server.pem ec2-user@100.53.199.188:/home/ec2-user/standalone-app-kkfunda/target/maven-standalone-application-0.0.1-SNAPSHOT.jar .
+copy files from maven server to local system or current folder where pem file is stored 
