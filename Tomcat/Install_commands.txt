@@ -1,2 +1,92 @@
 $scp -i linux_server.pem ec2-user@100.53.199.188:/home/ec2-user/standalone-app-kkfunda/target/maven-standalone-application-0.0.1-SNAPSHOT.jar .
 copy files from maven server to local system or current folder where pem file is stored 
+
+Installation of tomcat
+======================
+$sudo su -
+#sudo yum install java-21-openjdk-devel -y
+#yum install wget unzip tree -y
+#cd /opt/
+https://tomcat.apache.org/download-90.cgi [Official Site for Tomcat]
+#wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.116/bin/apache-tomcat-9.0.116.zip
+#unzip apache-tomcat-9.0.116.zip
+#ls -lrth 
+#rm -rf apache-tomcat-9.0.116.zip
+#cd /opt/apache-tomcat-9.0.116/bin
+#chmod u+x *.sh
+
+How to start/stop the tomcat server?
+
+    step 1: go to bin directory 
+
+    step 2: sh startup.sh    ----> to start
+                or
+            sh catalina.sh start ---> to start
+
+          sh shutdown.sh  ----> to stop 
+               or
+          sh catalina.sh stop ----> to stop
+
+
+NOTE: By default port number of tomcat : 8080
+
+
+TCP port range: 0 to 65535
+
+check tomcat is running or not?
+
+    sudo yum install lsof
+    lsof -i :8080
+
+
+   ps -ef|grep -i "tomcat"
+
+I want to start/stop tomcat server from anywhere instead of bin dir?
+
+
+ln -s /opt/apache-tomcat-9.0.116/bin/startup.sh /usr/bin/startTomcat
+ln -s /opt/apache-tomcat-9.0.116/bin/shutdown.sh /usr/bin/stopTomcat
+
+Now you can go and run in any directory.
+default port number for tomcat server is 8080.
+http://98.93.35.109:8080/ --> directly you can't access without enable that port number in security group.
+select the server --> go to security --> scroll down --> click on security group ---->
+  click on edit in-bound rules ---> click on add rule ---> select custom tcp ---> give port 8080 ----> select anywhere ipv4 ---> save the rules.
+Then reload this url http://98.93.35.109:8080/
+
+click on server Status, Manager App, Host Manager ----> not able to access.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Manager App
+#cd /opt/apache-tomcat-9.0.116/webapps
+#cd manager
+#cd META-INF
+#vi context.xml
+:se nu
+      comment 21st and 22nd lines.
+     <!--
+     -->
+refresh the main page ----> It will ask the credentials.
+#cd /opt/apache-tomcat-9.0.116/conf/
+#vi tomcat-users.xml ---> goto end of the file and add users.
+
+  <user username="kk" password="password" roles="manager-gui,admin-gui"/>
+  <user username="mahesh" password="password" roles="manager-gui,admin-gui"/>
+
+<user username="seshu" password="password" roles="manager-gui,admin-gui"/>
+  <user username="vani" password="password" roles="manager-gui,admin-gui"/>
+
+you want to login Host-manager do the same process
+#cd /opt/apache-tomcat-9.0.116/webapps
+#cd host-manager
+#cd META-INF
+#ls
+#vi context.xml
+comment 21st and 22nd lines.
+     <!--
+     -->
+refresh the main page ----> It will ask the credentials, give the credentials.
+go and check the logs directory logs are created or not
+#cd /opt/apache-tomcat-9.0.116/logs
+
+scp -i linux_server.pem ec2-user@44.210.20.214:/home/ec2-user/maven-webapplication-project-kkfunda/target/maven-web-application.war .
+attach this war file to Tomcat Web Application Manager and to run the application.
