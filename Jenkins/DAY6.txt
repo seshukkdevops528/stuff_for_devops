@@ -1,0 +1,43 @@
+Jenkins security
+================
+
+--> procedure of providing security to the jenkins server called as jenkins security.
+
+IQ] where the jenkins users information will store?
+
+Ans: /var/lib/jenkins/users/users.xml
+
+
+For example
+===========
+
+kkfunda --> sr devops engineer --> admin
+prasanth --> devops engineer
+mani --> devops engineer
+
+jaswanth --> developer     
+raghu    --> developer
+
+IQ] How to create a user in jenkins?
+
+manage jenkins --> manage users --> create users --> 
+
+  uname :prasanth
+  pwd   :kkfunda
+  conform pwd: kkfunda
+  full name: prasanth
+  email: abc@gmail.com
+
+NOTE: by default every user has admin access , How to give read access to developers?
+
+--> [Install role based authorization startegy  plugin]
+
+--> login as a admin	--> manage jenkins --> security --> security --> authentication --> Authorization 
+
+--> select Project based matrix Authorization Strategy
+
+NOTE: add all users and give the permissions, check the activities.
+
+NOTE: pls give job level acces to users.
+
+==================================================================================================================
