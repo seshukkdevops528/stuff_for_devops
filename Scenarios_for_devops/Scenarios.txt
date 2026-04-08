@@ -5,3 +5,4 @@ docker ps -a
 docker logs <container>
 docker inspect <container> | grep -i "error"
 ----------------------------------------------------
+https://medium.com/@raeesyaqubqazi/devsecops-project-setup-a-step-by-step-guide-417028df8ade
