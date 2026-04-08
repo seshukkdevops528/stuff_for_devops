@@ -1,0 +1,7 @@
+Docker Container Not Starting
+Situation: Container exits immediately
+Solution: 
+docker ps -a
+docker logs <container>
+docker inspect <container> | grep -i "error"
+----------------------------------------------------
